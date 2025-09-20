@@ -1,0 +1,21 @@
+01_lob_basics.ipynb
+
+Simulate random orders arriving into LOB.
+
+Plot bid/ask spread over time.
+
+02_hawkes_fits.ipynb
+
+Generate order arrivals with Hawkes.
+
+Fit exponential kernel Hawkes (via tick lib or custom).
+
+Compare Poisson vs Hawkes arrival intensity.
+
+03_strategy_backtest.ipynb
+
+Implement naive market-making: post bid/ask ± spread.
+
+Track PnL.
+
+Compare to random taker.
