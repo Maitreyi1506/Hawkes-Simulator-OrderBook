@@ -1,0 +1,23 @@
+import numpy as np
+
+class HawkesSimulator:
+    def __init__(self, mu=0.1, alpha=0.5, beta=1.0):
+        self.mu = mu
+        self.alpha = alpha
+        self.beta = beta
+
+    def simulate(self, T=100):
+        """Ogata thinning algorithm."""
+        t, events = 0, []
+        lambda_t = self.mu
+        while t < T:
+            u = np.random.uniform()
+            w = -np.log(u)/lambda_t
+            t += w
+            D = np.random.uniform()
+            if D <= self.mu/lambda_t:
+                events.append(t)
+                lambda_t = self.mu + self.alpha
+            else:
+                lambda_t = max(self.mu, lambda_t*np.exp(-self.beta*w))
+        return np.array(events)
